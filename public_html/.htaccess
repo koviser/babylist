@@ -1,0 +1,22 @@
+DirectoryIndex index.htm
+
+AddDefaultCharset UTF-8
+php_value default_charset UTF-8
+php_flag display_errors off
+php_flag register_globals off
+
+<IfModule mod_charset.c>
+   CharsetDisable On
+   CharsetRecodeMultipartForms Off
+   CharsetSourceEnc UTF-8
+</IfModule>
+
+<ifModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
+</ifModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|xml|gz)$">
+    Header append Vary: Accept-Encoding
+  </FilesMatch>
+</IfModule>
